@@ -126,6 +126,51 @@ func (srv *EventsServer) Stream(req *ttnpb.StreamEventsRequest, stream ttnpb.Eve
 	}
 }
 
+// StreamApplication implements the EventsServer interface.
+func (srv *EventsServer) StreamApplication(req *ttnpb.StreamApplicationEventsRequest, stream ttnpb.Events_StreamApplicationServer) error {
+	streamReq := &ttnpb.StreamEventsRequest{Tail: req.Tail, After: req.After}
+	for _, id := range req.ApplicationIDs {
+		streamReq.Identifiers = append(streamReq.Identifiers, ttnpb.ApplicationIdentifiers{ApplicationID: id}.EntityIdentifiers())
+	}
+	return srv.Stream(streamReq, stream)
+}
+
+// StreamClient implements the EventsServer interface.
+func (srv *EventsServer) StreamClient(req *ttnpb.StreamClientEventsRequest, stream ttnpb.Events_StreamClientServer) error {
+	streamReq := &ttnpb.StreamEventsRequest{Tail: req.Tail, After: req.After}
+	for _, id := range req.ClientIDs {
+		streamReq.Identifiers = append(streamReq.Identifiers, ttnpb.ClientIdentifiers{ClientID: id}.EntityIdentifiers())
+	}
+	return srv.Stream(streamReq, stream)
+}
+
+// StreamGateway implements the EventsServer interface.
+func (srv *EventsServer) StreamGateway(req *ttnpb.StreamGatewayEventsRequest, stream ttnpb.Events_StreamGatewayServer) error {
+	streamReq := &ttnpb.StreamEventsRequest{Tail: req.Tail, After: req.After}
+	for _, id := range req.GatewayIDs {
+		streamReq.Identifiers = append(streamReq.Identifiers, ttnpb.GatewayIdentifiers{GatewayID: id}.EntityIdentifiers())
+	}
+	return srv.Stream(streamReq, stream)
+}
+
+// StreamOrganization implements the EventsServer interface.
+func (srv *EventsServer) StreamOrganization(req *ttnpb.StreamOrganizationEventsRequest, stream ttnpb.Events_StreamOrganizationServer) error {
+	streamReq := &ttnpb.StreamEventsRequest{Tail: req.Tail, After: req.After}
+	for _, id := range req.OrganizationIDs {
+		streamReq.Identifiers = append(streamReq.Identifiers, ttnpb.OrganizationIdentifiers{OrganizationID: id}.EntityIdentifiers())
+	}
+	return srv.Stream(streamReq, stream)
+}
+
+// StreamUser implements the EventsServer interface.
+func (srv *EventsServer) StreamUser(req *ttnpb.StreamUserEventsRequest, stream ttnpb.Events_StreamUserServer) error {
+	streamReq := &ttnpb.StreamEventsRequest{Tail: req.Tail, After: req.After}
+	for _, id := range req.UserIDs {
+		streamReq.Identifiers = append(streamReq.Identifiers, ttnpb.UserIdentifiers{UserID: id}.EntityIdentifiers())
+	}
+	return srv.Stream(streamReq, stream)
+}
+
 // Roles implements rpcserver.Registerer.
 func (srv *EventsServer) Roles() []ttnpb.PeerInfo_Role {
 	return nil

@@ -47,6 +47,41 @@ message StreamEventsRequest {
   google.protobuf.Timestamp after = 3 [(gogoproto.stdtime) = true];
 }
 
+// The same as StreamEventsRequest, but then already scoped to the Application type.
+message StreamApplicationEventsRequest {
+  repeated string application_ids = 1 [(gogoproto.customname) = "ApplicationIDs"];;
+  uint32 tail = 2;
+  google.protobuf.Timestamp after = 3 [(gogoproto.stdtime) = true];
+}
+
+// The same as StreamEventsRequest, but then already scoped to the Client type.
+message StreamClientEventsRequest {
+  repeated string client_ids = 1 [(gogoproto.customname) = "ClientIDs"];
+  uint32 tail = 2;
+  google.protobuf.Timestamp after = 3 [(gogoproto.stdtime) = true];
+}
+
+// The same as StreamEventsRequest, but then already scoped to the Gateway type.
+message StreamGatewayEventsRequest {
+  repeated string gateway_ids = 1 [(gogoproto.customname) = "GatewayIDs"];
+  uint32 tail = 2;
+  google.protobuf.Timestamp after = 3 [(gogoproto.stdtime) = true];
+}
+
+// The same as StreamEventsRequest, but then already scoped to the Organization type.
+message StreamOrganizationEventsRequest {
+  repeated string organization_ids = 1 [(gogoproto.customname) = "OrganizationIDs"];
+  uint32 tail = 2;
+  google.protobuf.Timestamp after = 3 [(gogoproto.stdtime) = true];
+}
+
+// The same as StreamEventsRequest, but then already scoped to the User type.
+message StreamUserEventsRequest {
+  repeated string user_ids = 1 [(gogoproto.customname) = "UserIDs"];
+  uint32 tail = 2;
+  google.protobuf.Timestamp after = 3 [(gogoproto.stdtime) = true];
+}
+
 // The Events service serves events from the cluster.
 service Events {
   // Stream live events, optionally with a tail of historical events (depending on server support and retention policy).
@@ -55,6 +90,36 @@ service Events {
     option (google.api.http) = {
       post: "/events"
       body: "*"
+    };
+  };
+  // Like the Stream rpc, but then scoped to Application events.
+  rpc StreamApplication(StreamApplicationEventsRequest) returns (stream Event) {
+    option (google.api.http) = {
+      get: "/events/applications"
+    };
+  };
+  // Like the Stream rpc, but then scoped to Client events.
+  rpc StreamClient(StreamClientEventsRequest) returns (stream Event) {
+    option (google.api.http) = {
+      get: "/events/clients"
+    };
+  };
+  // Like the Stream rpc, but then scoped to Gateway events.
+  rpc StreamGateway(StreamGatewayEventsRequest) returns (stream Event) {
+    option (google.api.http) = {
+      get: "/events/gateways"
+    };
+  };
+  // Like the Stream rpc, but then scoped to Organization events.
+  rpc StreamOrganization(StreamOrganizationEventsRequest) returns (stream Event) {
+    option (google.api.http) = {
+      get: "/events/organizations"
+    };
+  };
+  // Like the Stream rpc, but then scoped to User events.
+  rpc StreamUser(StreamUserEventsRequest) returns (stream Event) {
+    option (google.api.http) = {
+      get: "/events/users"
     };
   };
 }

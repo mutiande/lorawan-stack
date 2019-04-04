@@ -283,3 +283,492 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = StreamEventsRequestValidationError{}
+
+// ValidateFields checks the field values on StreamApplicationEventsRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned.
+func (m *StreamApplicationEventsRequest) ValidateFields(paths ...string) error {
+	if m == nil {
+		return nil
+	}
+
+	if len(paths) == 0 {
+		paths = StreamApplicationEventsRequestFieldPathsNested
+	}
+
+	for name, subs := range _processPaths(append(paths[:0:0], paths...)) {
+		_ = subs
+		switch name {
+		case "application_ids":
+
+		case "tail":
+			// no validation rules for Tail
+		case "after":
+
+			if v, ok := interface{}(m.GetAfter()).(interface{ ValidateFields(...string) error }); ok {
+				if err := v.ValidateFields(subs...); err != nil {
+					return StreamApplicationEventsRequestValidationError{
+						field:  "after",
+						reason: "embedded message failed validation",
+						cause:  err,
+					}
+				}
+			}
+
+		default:
+			return StreamApplicationEventsRequestValidationError{
+				field:  name,
+				reason: "invalid field path",
+			}
+		}
+	}
+	return nil
+}
+
+// StreamApplicationEventsRequestValidationError is the validation error
+// returned by StreamApplicationEventsRequest.ValidateFields if the designated
+// constraints aren't met.
+type StreamApplicationEventsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StreamApplicationEventsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StreamApplicationEventsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StreamApplicationEventsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StreamApplicationEventsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StreamApplicationEventsRequestValidationError) ErrorName() string {
+	return "StreamApplicationEventsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StreamApplicationEventsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStreamApplicationEventsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StreamApplicationEventsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StreamApplicationEventsRequestValidationError{}
+
+// ValidateFields checks the field values on StreamClientEventsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *StreamClientEventsRequest) ValidateFields(paths ...string) error {
+	if m == nil {
+		return nil
+	}
+
+	if len(paths) == 0 {
+		paths = StreamClientEventsRequestFieldPathsNested
+	}
+
+	for name, subs := range _processPaths(append(paths[:0:0], paths...)) {
+		_ = subs
+		switch name {
+		case "client_ids":
+
+		case "tail":
+			// no validation rules for Tail
+		case "after":
+
+			if v, ok := interface{}(m.GetAfter()).(interface{ ValidateFields(...string) error }); ok {
+				if err := v.ValidateFields(subs...); err != nil {
+					return StreamClientEventsRequestValidationError{
+						field:  "after",
+						reason: "embedded message failed validation",
+						cause:  err,
+					}
+				}
+			}
+
+		default:
+			return StreamClientEventsRequestValidationError{
+				field:  name,
+				reason: "invalid field path",
+			}
+		}
+	}
+	return nil
+}
+
+// StreamClientEventsRequestValidationError is the validation error returned by
+// StreamClientEventsRequest.ValidateFields if the designated constraints
+// aren't met.
+type StreamClientEventsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StreamClientEventsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StreamClientEventsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StreamClientEventsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StreamClientEventsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StreamClientEventsRequestValidationError) ErrorName() string {
+	return "StreamClientEventsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StreamClientEventsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStreamClientEventsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StreamClientEventsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StreamClientEventsRequestValidationError{}
+
+// ValidateFields checks the field values on StreamGatewayEventsRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *StreamGatewayEventsRequest) ValidateFields(paths ...string) error {
+	if m == nil {
+		return nil
+	}
+
+	if len(paths) == 0 {
+		paths = StreamGatewayEventsRequestFieldPathsNested
+	}
+
+	for name, subs := range _processPaths(append(paths[:0:0], paths...)) {
+		_ = subs
+		switch name {
+		case "gateway_ids":
+
+		case "tail":
+			// no validation rules for Tail
+		case "after":
+
+			if v, ok := interface{}(m.GetAfter()).(interface{ ValidateFields(...string) error }); ok {
+				if err := v.ValidateFields(subs...); err != nil {
+					return StreamGatewayEventsRequestValidationError{
+						field:  "after",
+						reason: "embedded message failed validation",
+						cause:  err,
+					}
+				}
+			}
+
+		default:
+			return StreamGatewayEventsRequestValidationError{
+				field:  name,
+				reason: "invalid field path",
+			}
+		}
+	}
+	return nil
+}
+
+// StreamGatewayEventsRequestValidationError is the validation error returned
+// by StreamGatewayEventsRequest.ValidateFields if the designated constraints
+// aren't met.
+type StreamGatewayEventsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StreamGatewayEventsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StreamGatewayEventsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StreamGatewayEventsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StreamGatewayEventsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StreamGatewayEventsRequestValidationError) ErrorName() string {
+	return "StreamGatewayEventsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StreamGatewayEventsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStreamGatewayEventsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StreamGatewayEventsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StreamGatewayEventsRequestValidationError{}
+
+// ValidateFields checks the field values on StreamOrganizationEventsRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned.
+func (m *StreamOrganizationEventsRequest) ValidateFields(paths ...string) error {
+	if m == nil {
+		return nil
+	}
+
+	if len(paths) == 0 {
+		paths = StreamOrganizationEventsRequestFieldPathsNested
+	}
+
+	for name, subs := range _processPaths(append(paths[:0:0], paths...)) {
+		_ = subs
+		switch name {
+		case "organization_ids":
+
+		case "tail":
+			// no validation rules for Tail
+		case "after":
+
+			if v, ok := interface{}(m.GetAfter()).(interface{ ValidateFields(...string) error }); ok {
+				if err := v.ValidateFields(subs...); err != nil {
+					return StreamOrganizationEventsRequestValidationError{
+						field:  "after",
+						reason: "embedded message failed validation",
+						cause:  err,
+					}
+				}
+			}
+
+		default:
+			return StreamOrganizationEventsRequestValidationError{
+				field:  name,
+				reason: "invalid field path",
+			}
+		}
+	}
+	return nil
+}
+
+// StreamOrganizationEventsRequestValidationError is the validation error
+// returned by StreamOrganizationEventsRequest.ValidateFields if the
+// designated constraints aren't met.
+type StreamOrganizationEventsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StreamOrganizationEventsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StreamOrganizationEventsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StreamOrganizationEventsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StreamOrganizationEventsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StreamOrganizationEventsRequestValidationError) ErrorName() string {
+	return "StreamOrganizationEventsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StreamOrganizationEventsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStreamOrganizationEventsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StreamOrganizationEventsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StreamOrganizationEventsRequestValidationError{}
+
+// ValidateFields checks the field values on StreamUserEventsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *StreamUserEventsRequest) ValidateFields(paths ...string) error {
+	if m == nil {
+		return nil
+	}
+
+	if len(paths) == 0 {
+		paths = StreamUserEventsRequestFieldPathsNested
+	}
+
+	for name, subs := range _processPaths(append(paths[:0:0], paths...)) {
+		_ = subs
+		switch name {
+		case "user_ids":
+
+		case "tail":
+			// no validation rules for Tail
+		case "after":
+
+			if v, ok := interface{}(m.GetAfter()).(interface{ ValidateFields(...string) error }); ok {
+				if err := v.ValidateFields(subs...); err != nil {
+					return StreamUserEventsRequestValidationError{
+						field:  "after",
+						reason: "embedded message failed validation",
+						cause:  err,
+					}
+				}
+			}
+
+		default:
+			return StreamUserEventsRequestValidationError{
+				field:  name,
+				reason: "invalid field path",
+			}
+		}
+	}
+	return nil
+}
+
+// StreamUserEventsRequestValidationError is the validation error returned by
+// StreamUserEventsRequest.ValidateFields if the designated constraints aren't met.
+type StreamUserEventsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StreamUserEventsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StreamUserEventsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StreamUserEventsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StreamUserEventsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StreamUserEventsRequestValidationError) ErrorName() string {
+	return "StreamUserEventsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StreamUserEventsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStreamUserEventsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StreamUserEventsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StreamUserEventsRequestValidationError{}

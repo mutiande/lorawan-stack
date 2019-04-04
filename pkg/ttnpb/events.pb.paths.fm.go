@@ -32,3 +32,58 @@ var StreamEventsRequestFieldPathsTopLevel = []string{
 	"identifiers",
 	"tail",
 }
+var StreamApplicationEventsRequestFieldPathsNested = []string{
+	"after",
+	"application_ids",
+	"tail",
+}
+
+var StreamApplicationEventsRequestFieldPathsTopLevel = []string{
+	"after",
+	"application_ids",
+	"tail",
+}
+var StreamClientEventsRequestFieldPathsNested = []string{
+	"after",
+	"client_ids",
+	"tail",
+}
+
+var StreamClientEventsRequestFieldPathsTopLevel = []string{
+	"after",
+	"client_ids",
+	"tail",
+}
+var StreamGatewayEventsRequestFieldPathsNested = []string{
+	"after",
+	"gateway_ids",
+	"tail",
+}
+
+var StreamGatewayEventsRequestFieldPathsTopLevel = []string{
+	"after",
+	"gateway_ids",
+	"tail",
+}
+var StreamOrganizationEventsRequestFieldPathsNested = []string{
+	"after",
+	"organization_ids",
+	"tail",
+}
+
+var StreamOrganizationEventsRequestFieldPathsTopLevel = []string{
+	"after",
+	"organization_ids",
+	"tail",
+}
+var StreamUserEventsRequestFieldPathsNested = []string{
+	"after",
+	"tail",
+	"user_ids",
+}
+
+var StreamUserEventsRequestFieldPathsTopLevel = []string{
+	"after",
+	"tail",
+	"user_ids",
+}

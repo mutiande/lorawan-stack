@@ -174,7 +174,12 @@
 - [lorawan-stack/api/events.proto](#lorawan-stack/api/events.proto)
     - [Event](#ttn.lorawan.v3.Event)
     - [Event.ContextEntry](#ttn.lorawan.v3.Event.ContextEntry)
+    - [StreamApplicationEventsRequest](#ttn.lorawan.v3.StreamApplicationEventsRequest)
+    - [StreamClientEventsRequest](#ttn.lorawan.v3.StreamClientEventsRequest)
     - [StreamEventsRequest](#ttn.lorawan.v3.StreamEventsRequest)
+    - [StreamGatewayEventsRequest](#ttn.lorawan.v3.StreamGatewayEventsRequest)
+    - [StreamOrganizationEventsRequest](#ttn.lorawan.v3.StreamOrganizationEventsRequest)
+    - [StreamUserEventsRequest](#ttn.lorawan.v3.StreamUserEventsRequest)
   
   
   
@@ -2289,6 +2294,40 @@ The messages (for translation) are stored as &#34;error:&lt;namespace&gt;:&lt;na
 
 
 
+<a name="ttn.lorawan.v3.StreamApplicationEventsRequest"></a>
+
+### StreamApplicationEventsRequest
+The same as StreamEventsRequest, but then already scoped to the Application type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| application_ids | [string](#string) | repeated |  |
+| tail | [uint32](#uint32) |  |  |
+| after | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
+
+
+
+
+
+
+<a name="ttn.lorawan.v3.StreamClientEventsRequest"></a>
+
+### StreamClientEventsRequest
+The same as StreamEventsRequest, but then already scoped to the Client type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| client_ids | [string](#string) | repeated |  |
+| tail | [uint32](#uint32) |  |  |
+| after | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
+
+
+
+
+
+
 <a name="ttn.lorawan.v3.StreamEventsRequest"></a>
 
 ### StreamEventsRequest
@@ -2300,6 +2339,57 @@ The messages (for translation) are stored as &#34;error:&lt;namespace&gt;:&lt;na
 | identifiers | [EntityIdentifiers](#ttn.lorawan.v3.EntityIdentifiers) | repeated |  |
 | tail | [uint32](#uint32) |  | If greater than zero, this will return historical events, up to this maximum when the stream starts. If used in combination with &#34;after&#34;, the limit that is reached first, is used. The availability of historical events depends on server support and retention policy. |
 | after | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | If not empty, this will return historical events after the given time when the stream starts. If used in combination with &#34;tail&#34;, the limit that is reached first, is used. The availability of historical events depends on server support and retention policy. |
+
+
+
+
+
+
+<a name="ttn.lorawan.v3.StreamGatewayEventsRequest"></a>
+
+### StreamGatewayEventsRequest
+The same as StreamEventsRequest, but then already scoped to the Gateway type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| gateway_ids | [string](#string) | repeated |  |
+| tail | [uint32](#uint32) |  |  |
+| after | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
+
+
+
+
+
+
+<a name="ttn.lorawan.v3.StreamOrganizationEventsRequest"></a>
+
+### StreamOrganizationEventsRequest
+The same as StreamEventsRequest, but then already scoped to the Organization type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| organization_ids | [string](#string) | repeated |  |
+| tail | [uint32](#uint32) |  |  |
+| after | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
+
+
+
+
+
+
+<a name="ttn.lorawan.v3.StreamUserEventsRequest"></a>
+
+### StreamUserEventsRequest
+The same as StreamEventsRequest, but then already scoped to the User type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_ids | [string](#string) | repeated |  |
+| tail | [uint32](#uint32) |  |  |
+| after | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
 
 
 
@@ -2320,6 +2410,11 @@ The Events service serves events from the cluster.
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Stream | [StreamEventsRequest](#ttn.lorawan.v3.StreamEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Stream live events, optionally with a tail of historical events (depending on server support and retention policy). Events may arrive out-of-order. |
+| StreamApplication | [StreamApplicationEventsRequest](#ttn.lorawan.v3.StreamApplicationEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Application events. |
+| StreamClient | [StreamClientEventsRequest](#ttn.lorawan.v3.StreamClientEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Client events. |
+| StreamGateway | [StreamGatewayEventsRequest](#ttn.lorawan.v3.StreamGatewayEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Gateway events. |
+| StreamOrganization | [StreamOrganizationEventsRequest](#ttn.lorawan.v3.StreamOrganizationEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Organization events. |
+| StreamUser | [StreamUserEventsRequest](#ttn.lorawan.v3.StreamUserEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to User events. |
 
  
 
