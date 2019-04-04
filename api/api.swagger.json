@@ -1626,6 +1626,49 @@
         ]
       }
     },
+    "/events/applications/{application_ids}": {
+      "get": {
+        "operationId": "StreamApplication2",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/v3Event"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "application_ids",
+            "in": "path",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "minItems": 1
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
     "/events/clients": {
       "get": {
         "operationId": "StreamClient",
@@ -1647,6 +1690,49 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "/events/clients/{client_ids}": {
+      "get": {
+        "operationId": "StreamClient2",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/v3Event"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "client_ids",
+            "in": "path",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "minItems": 1
           },
           {
             "name": "tail",
@@ -1710,6 +1796,49 @@
         ]
       }
     },
+    "/events/gateways/{gateway_ids}": {
+      "get": {
+        "operationId": "StreamGateway2",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/v3Event"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "gateway_ids",
+            "in": "path",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "minItems": 1
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
     "/events/organizations": {
       "get": {
         "operationId": "StreamOrganization",
@@ -1752,6 +1881,49 @@
         ]
       }
     },
+    "/events/organizations/{organization_ids}": {
+      "get": {
+        "operationId": "StreamOrganization2",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/v3Event"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organization_ids",
+            "in": "path",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "minItems": 1
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
     "/events/users": {
       "get": {
         "operationId": "StreamUser",
@@ -1773,6 +1945,49 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "/events/users/{user_ids}": {
+      "get": {
+        "operationId": "StreamUser2",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/v3Event"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user_ids",
+            "in": "path",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "minItems": 1
           },
           {
             "name": "tail",

@@ -96,30 +96,45 @@ service Events {
   rpc StreamApplication(StreamApplicationEventsRequest) returns (stream Event) {
     option (google.api.http) = {
       get: "/events/applications"
+      additional_bindings {
+        get: "/events/applications/{application_ids}"
+      }
     };
   };
   // Like the Stream rpc, but then scoped to Client events.
   rpc StreamClient(StreamClientEventsRequest) returns (stream Event) {
     option (google.api.http) = {
       get: "/events/clients"
+      additional_bindings {
+        get: "/events/clients/{client_ids}"
+      }
     };
   };
   // Like the Stream rpc, but then scoped to Gateway events.
   rpc StreamGateway(StreamGatewayEventsRequest) returns (stream Event) {
     option (google.api.http) = {
       get: "/events/gateways"
+      additional_bindings {
+        get: "/events/gateways/{gateway_ids}"
+      }
     };
   };
   // Like the Stream rpc, but then scoped to Organization events.
   rpc StreamOrganization(StreamOrganizationEventsRequest) returns (stream Event) {
     option (google.api.http) = {
       get: "/events/organizations"
+      additional_bindings {
+        get: "/events/organizations/{organization_ids}"
+      }
     };
   };
   // Like the Stream rpc, but then scoped to User events.
   rpc StreamUser(StreamUserEventsRequest) returns (stream Event) {
     option (google.api.http) = {
       get: "/events/users"
+      additional_bindings {
+        get: "/events/users/{user_ids}"
+      }
     };
   };
 }
