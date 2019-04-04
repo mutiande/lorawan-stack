@@ -54,6 +54,19 @@ var StreamClientEventsRequestFieldPathsTopLevel = []string{
 	"client_ids",
 	"tail",
 }
+var StreamEndDeviceEventsRequestFieldPathsNested = []string{
+	"after",
+	"application_ids",
+	"device_ids",
+	"tail",
+}
+
+var StreamEndDeviceEventsRequestFieldPathsTopLevel = []string{
+	"after",
+	"application_ids",
+	"device_ids",
+	"tail",
+}
 var StreamGatewayEventsRequestFieldPathsNested = []string{
 	"after",
 	"gateway_ids",

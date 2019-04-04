@@ -1669,6 +1669,103 @@
         ]
       }
     },
+    "/events/applications/{application_ids}/devices": {
+      "get": {
+        "operationId": "StreamEndDevice",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/v3Event"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "application_ids",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "device_ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "/events/applications/{application_ids}/devices/{device_ids}": {
+      "get": {
+        "operationId": "StreamEndDevice2",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/v3Event"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "application_ids",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "device_ids",
+            "in": "path",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "minItems": 1
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
     "/events/clients": {
       "get": {
         "operationId": "StreamClient",

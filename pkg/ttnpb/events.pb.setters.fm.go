@@ -201,6 +201,55 @@ func (dst *StreamClientEventsRequest) SetFields(src *StreamClientEventsRequest, 
 	return nil
 }
 
+func (dst *StreamEndDeviceEventsRequest) SetFields(src *StreamEndDeviceEventsRequest, paths ...string) error {
+	for name, subs := range _processPaths(append(paths[:0:0], paths...)) {
+		switch name {
+		case "application_ids":
+			if len(subs) > 0 {
+				return fmt.Errorf("'application_ids' has no subfields, but %s were specified", subs)
+			}
+			if src != nil {
+				dst.ApplicationIDs = src.ApplicationIDs
+			} else {
+				var zero string
+				dst.ApplicationIDs = zero
+			}
+		case "device_ids":
+			if len(subs) > 0 {
+				return fmt.Errorf("'device_ids' has no subfields, but %s were specified", subs)
+			}
+			if src != nil {
+				dst.DeviceIDs = src.DeviceIDs
+			} else {
+				dst.DeviceIDs = nil
+			}
+		case "tail":
+			if len(subs) > 0 {
+				return fmt.Errorf("'tail' has no subfields, but %s were specified", subs)
+			}
+			if src != nil {
+				dst.Tail = src.Tail
+			} else {
+				var zero uint32
+				dst.Tail = zero
+			}
+		case "after":
+			if len(subs) > 0 {
+				return fmt.Errorf("'after' has no subfields, but %s were specified", subs)
+			}
+			if src != nil {
+				dst.After = src.After
+			} else {
+				dst.After = nil
+			}
+
+		default:
+			return fmt.Errorf("invalid field: '%s'", name)
+		}
+	}
+	return nil
+}
+
 func (dst *StreamGatewayEventsRequest) SetFields(src *StreamGatewayEventsRequest, paths ...string) error {
 	for name, subs := range _processPaths(append(paths[:0:0], paths...)) {
 		switch name {

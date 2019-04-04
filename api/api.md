@@ -176,6 +176,7 @@
     - [Event.ContextEntry](#ttn.lorawan.v3.Event.ContextEntry)
     - [StreamApplicationEventsRequest](#ttn.lorawan.v3.StreamApplicationEventsRequest)
     - [StreamClientEventsRequest](#ttn.lorawan.v3.StreamClientEventsRequest)
+    - [StreamEndDeviceEventsRequest](#ttn.lorawan.v3.StreamEndDeviceEventsRequest)
     - [StreamEventsRequest](#ttn.lorawan.v3.StreamEventsRequest)
     - [StreamGatewayEventsRequest](#ttn.lorawan.v3.StreamGatewayEventsRequest)
     - [StreamOrganizationEventsRequest](#ttn.lorawan.v3.StreamOrganizationEventsRequest)
@@ -2328,6 +2329,24 @@ The same as StreamEventsRequest, but then already scoped to the Client type.
 
 
 
+<a name="ttn.lorawan.v3.StreamEndDeviceEventsRequest"></a>
+
+### StreamEndDeviceEventsRequest
+The same as StreamEventsRequest, but then already scoped to the Client type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| application_ids | [string](#string) |  |  |
+| device_ids | [string](#string) | repeated |  |
+| tail | [uint32](#uint32) |  |  |
+| after | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
+
+
+
+
+
+
 <a name="ttn.lorawan.v3.StreamEventsRequest"></a>
 
 ### StreamEventsRequest
@@ -2412,6 +2431,7 @@ The Events service serves events from the cluster.
 | Stream | [StreamEventsRequest](#ttn.lorawan.v3.StreamEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Stream live events, optionally with a tail of historical events (depending on server support and retention policy). Events may arrive out-of-order. |
 | StreamApplication | [StreamApplicationEventsRequest](#ttn.lorawan.v3.StreamApplicationEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Application events. |
 | StreamClient | [StreamClientEventsRequest](#ttn.lorawan.v3.StreamClientEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Client events. |
+| StreamEndDevice | [StreamEndDeviceEventsRequest](#ttn.lorawan.v3.StreamEndDeviceEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to EndDevice events. |
 | StreamGateway | [StreamGatewayEventsRequest](#ttn.lorawan.v3.StreamGatewayEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Gateway events. |
 | StreamOrganization | [StreamOrganizationEventsRequest](#ttn.lorawan.v3.StreamOrganizationEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to Organization events. |
 | StreamUser | [StreamUserEventsRequest](#ttn.lorawan.v3.StreamUserEventsRequest) | [Event](#ttn.lorawan.v3.Event) stream | Like the Stream rpc, but then scoped to User events. |

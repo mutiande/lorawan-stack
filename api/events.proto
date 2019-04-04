@@ -61,6 +61,14 @@ message StreamClientEventsRequest {
   google.protobuf.Timestamp after = 3 [(gogoproto.stdtime) = true];
 }
 
+// The same as StreamEventsRequest, but then already scoped to the Client type.
+message StreamEndDeviceEventsRequest {
+  string application_ids = 1 [(gogoproto.customname) = "ApplicationIDs"];
+  repeated string device_ids = 2 [(gogoproto.customname) = "DeviceIDs"];
+  uint32 tail = 3;
+  google.protobuf.Timestamp after = 4 [(gogoproto.stdtime) = true];
+}
+
 // The same as StreamEventsRequest, but then already scoped to the Gateway type.
 message StreamGatewayEventsRequest {
   repeated string gateway_ids = 1 [(gogoproto.customname) = "GatewayIDs"];
@@ -107,6 +115,15 @@ service Events {
       get: "/events/clients"
       additional_bindings {
         get: "/events/clients/{client_ids}"
+      }
+    };
+  };
+  // Like the Stream rpc, but then scoped to EndDevice events.
+  rpc StreamEndDevice(StreamEndDeviceEventsRequest) returns (stream Event) {
+    option (google.api.http) = {
+      get: "/events/applications/{application_ids}/devices"
+      additional_bindings {
+        get: "/events/applications/{application_ids}/devices/{device_ids}"
       }
     };
   };

@@ -144,6 +144,18 @@ func (srv *EventsServer) StreamClient(req *ttnpb.StreamClientEventsRequest, stre
 	return srv.Stream(streamReq, stream)
 }
 
+// StreamEndDevice implements the EventsServer interface.
+func (srv *EventsServer) StreamEndDevice(req *ttnpb.StreamEndDeviceEventsRequest, stream ttnpb.Events_StreamEndDeviceServer) error {
+	streamReq := &ttnpb.StreamEventsRequest{Tail: req.Tail, After: req.After}
+	for _, id := range req.DeviceIDs {
+		streamReq.Identifiers = append(streamReq.Identifiers, ttnpb.EndDeviceIdentifiers{
+			ApplicationIdentifiers: ttnpb.ApplicationIdentifiers{ApplicationID: req.ApplicationIDs},
+			DeviceID:               id,
+		}.EntityIdentifiers())
+	}
+	return srv.Stream(streamReq, stream)
+}
+
 // StreamGateway implements the EventsServer interface.
 func (srv *EventsServer) StreamGateway(req *ttnpb.StreamGatewayEventsRequest, stream ttnpb.Events_StreamGatewayServer) error {
 	streamReq := &ttnpb.StreamEventsRequest{Tail: req.Tail, After: req.After}
